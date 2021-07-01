@@ -1,0 +1,137 @@
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  /* Everything but the jumbotron gets side spacing for mobile first views */
+  .header,
+  .footer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  
+  
+  /* Customize container */
+  @media (min-width: 768px) {
+    .container {
+      max-width: 730px;
+      
+    }
+  }
+  .container-narrow > hr {
+    margin: 30px 0;
+  }
+  
+  .container1 {
+    text-align: center;
+    background-color: rgb(236, 235, 229);
+    border-radius: 50px;
+    box-shadow: 1px 2px 5px rgba(14, 13, 13, 0.31)
+  }
+
+  .container1 > hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))
+  }
+  /* Main marketing message and sign up button */
+  .resultcontainer {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-top: 25px;
+    background-color: #364351;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 1px 5px 10px rgba(14, 13, 13, 0.31);
+  }
+
+
+  .bodyDiv{
+    text-align: center;
+  }
+  @media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .header,
+    .footer {
+      padding-right: 0;
+      padding-left: 0;
+    }
+    /* Space out the masthead */
+    .header {
+      margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+      border-bottom: 0;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .slidecontainer{
+      display: none;
+    }
+  }
+  .slidecontainer{
+    padding-left: 60px;
+    padding-top: 60px;
+    float: left;
+    width: 40%;
+  }
+  .jumbotronHeading{
+    padding-top: 20px;
+    font-size: 24px;
+  }
+  .jumbotronHeading > span {
+    padding-top: 5px;
+    display: block;
+    font-size: 12px;
+    color: rgb(101, 102, 99);
+  }
+  .canvasDiv{
+    display: flow-root;
+    text-align: center;
+  }
+
+  .canvasDiv > canvas {
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.75);
+    border-style:groove;
+  }
+
+  .slidecontainer input[type="range"] {
+    box-shadow: 1px 1px 1px #000000;
+    border: 0px solid #000000;
+    height: 10px;
+    width: 220px;
+    border-radius: 12px;
+    background: #529DE1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3px;
+  }
+
+  .slidecontainer input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 40px;
+    border-radius: 5px;
+    background: #FF96FC;
+    cursor: pointer;
+  }
+
+  .slidecontainer input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    background: #f1bb07;
+    cursor: pointer;
+    -webkit-appearance: none;
+    /* margin-top: -5px; */
+  }
