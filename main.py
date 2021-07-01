@@ -1,7 +1,6 @@
 # requests are objects that flask handles (get set post, etc)
 from flask import Flask, render_template, request
 # scientific computing library for saving, reading, and resizing images
-from imageio import imread
 import cv2
 from skimage.transform import resize
 # for matrix math
