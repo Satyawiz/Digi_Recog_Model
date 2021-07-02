@@ -50,13 +50,13 @@
       var textObjPred= document.getElementById("prediction")
       var divObjResult= document.getElementById("resultcontainer")
       var img = canvasObj.toDataURL();
-      alert('The data under img:'+img)  
+      alert('The data under img:'+img);  
       $.ajax({
         type: "POST",
         url: $SCRIPT_ROOT + "/predict/",
         data: img,
         success: function(data){
-          alert('The data under data:'+data)
+          alert('The data under data:'+ data);
           $('#result').text('Predicted Output');
           $('#prediction').text(data);
           divObjResult.style.paddingTop="5px"
