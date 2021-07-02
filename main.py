@@ -16,8 +16,25 @@ import tensorflow as tf
 sys.path.append(os.path.abspath("./model"))
 from load import *
 
+
+class AppMiddleware(object):
+    def __init__(self, app, script_name=''):
+        self.app = app
+        self.script_name = script_name
+
+    def __call__(self, environ, start_response):
+        script_name = self.script_name
+        if self.script_name:
+            environ['SCRIPT_NAME'] = script_name
+            path_info = environ['PATH_INFO']
+            if path_info.startswith(script_name):
+                environ['PATH_INFO'] = path_info[len(script_name):]
+
+        return self.app(environ, start_response)
+
 # initalize our flask app
 app = Flask(__name__)
+app.wsgi_app = AppMiddleware(app.wsgi_app, '/myapp')
 # global vars for easy reusability
 global model,graph
 # initialize these variables
