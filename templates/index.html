@@ -44,7 +44,7 @@
     <script type="text/javascript">
      
     $(".myButton").click(function(){
-      var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
       var canvasObj = document.getElementById("canvas");
       var textObjResult = document.getElementById("result");
       var textObjPred= document.getElementById("prediction")
