@@ -43,8 +43,9 @@
     <script src="{{ url_for('static',filename='index.js') }}"></script>
     <script type="text/javascript">
      
-    $(".myButton").click(function(){
+    $(".myButton").click(function(e){
       $SCRIPT_ROOT = ({{ request.script_root|tojson|safe }});
+      e.preventDefault();
       var canvasObj = document.getElementById("canvas");
       var textObjResult = document.getElementById("result");
       var textObjPred= document.getElementById("prediction");
