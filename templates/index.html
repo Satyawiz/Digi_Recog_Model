@@ -44,7 +44,7 @@
     <script type="text/javascript">
      
     $(".myButton").click(function(){
-      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+      $SCRIPT_ROOT = ({{ request.script_root|tojson|safe }});
       var canvasObj = document.getElementById("canvas");
       var textObjResult = document.getElementById("result");
       var textObjPred= document.getElementById("prediction");
@@ -54,9 +54,10 @@
       $.ajax({
         type: "POST",
         url: $SCRIPT_ROOT + "/predict/",
+        async:false,
         data: img,
         success: function(data){
-          console.log('Under ajax construct');
+          
           $('#result').text('Predicted Output');
           $('#prediction').text(data);
           divObjResult.style.paddingTop="5px"
@@ -66,6 +67,7 @@
           textObjResult.style.fontSize="12px";
           textObjPred.style.fontSize="50px";
         }
+        
       });
     });
    
