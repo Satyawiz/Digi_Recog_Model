@@ -54,8 +54,8 @@
       $.ajax({
         type: "POST",
         url: $SCRIPT_ROOT + "/predict/",
-        async:false,
         data: img,
+        
         success: function(data){
           
           $('#result').text('Predicted Output');
