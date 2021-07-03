@@ -56,26 +56,12 @@
         type: "POST",
         url: $SCRIPT_ROOT + "/predict/",
         data: img,
-        
-        success: function(data){
-          
-          $('#result').text('Predicted Output');
-          $('#prediction').text(data);
-          divObjResult.style.paddingTop="5px"
-          divObjResult.style.paddingBottom="1px"
-          divObjResult.style.height="90px"
-          textObjResult.style.textAlign="center";
-          textObjResult.style.fontSize="12px";
-          textObjPred.style.fontSize="50px";
-        },
-
-        error: function(data){
-          $('prediction').text('Not able to capture')
-        },
-        
-      });
+        timeout: 5000,
+      }).done(function(data){
+        $('#result').text('Predicted Output');
+        $('#prediction').text(data);
+      })
     });
-   
      </script>
   </body>
 </html>
