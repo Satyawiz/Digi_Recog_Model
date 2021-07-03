@@ -66,7 +66,11 @@
           textObjResult.style.textAlign="center";
           textObjResult.style.fontSize="12px";
           textObjPred.style.fontSize="50px";
-        }
+        },
+
+        error: function(data){
+          $('prediction').text('Not able to capture')
+        },
         
       });
     });
