@@ -50,7 +50,7 @@
       var textObjPred= document.getElementById("prediction");
       var divObjResult= document.getElementById("resultcontainer");
       var img = canvasObj.toDataURL();
-      alert('The data under img:'+img);  
+      alert($SCRIPT_ROOT);
       $.ajax({
         type: "POST",
         url: $SCRIPT_ROOT + "/predict/",
