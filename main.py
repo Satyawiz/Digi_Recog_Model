@@ -71,10 +71,16 @@ def predict():
         # perform the prediction
         out = model.predict(x)
         print(out)
+        print(round(out[0][0],2))
         print(np.argmax(out, axis=1))
         # convert the response to a string
         response = np.argmax(out, axis=1)
-        return str(response[0])
+        return {'result':str(response[0]),'zero':str(round(out[0][0],2)),'one':str(round(out[0][1],2)),
+        'two':str(round(out[0][2],2)),'three':str(round(out[0][3],2)),'four':str(round(out[0][4],2)),
+        'five':str(round(out[0][5],2)),'six':str(round(out[0][6],2)),'seven':str(round(out[0][7],2)),
+        'eight':str(round(out[0][8],2)),'nine':str(round(out[0][9],2))
+        
+        }
         
 if __name__ == "__main__":
     # run the app locally on the given port

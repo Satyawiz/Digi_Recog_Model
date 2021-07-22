@@ -58,18 +58,17 @@
     
     clearButton.on( "click", function()
     {
-      var textObj = document.getElementById("result")
-      var divObjResult = document.getElementById("resultcontainer")
-      var divObjPre = document.getElementById("prediction")
-        
-        textObj.style.fontSize="14px"
         context.clearRect( 0, 0, 280, 280 );
         context.fillStyle="lightslategray";
         context.fillRect(0,0,canvas.width,canvas.height);
-        $('#result').text('Get your prediction here!!!');
-        $('#prediction').text('')
-        
-      
+        JSC.Chart('Chart',{
+          box: { 
+            padding: 10, 
+            outline: { color: '#B3AF97', width: 2 }, 
+            radius: 5, 
+            fill: '#ECEBE5'
+            }
+        });
     });
     
     /* LINE WIDTH */
@@ -88,4 +87,6 @@
       context.lineWidth = $( this ).val();
     });
   }
+
+  
 }());

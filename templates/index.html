@@ -19,13 +19,13 @@
         <h3 class="jumbotronHeading">Draw the digit inside this Box!<span>Created by Satyendra Singh</span></h3>
         <hr>
         <div class="slidecontainer">
-          <p>Drag the slider to change the line width.</p>
-          <input type="range" min="10" max="50" value="15" id="myRange">
-          <p>Value: <span id="sliderValue"></span></p>
-          <div class="resultcontainer" id="resultcontainer">
-            <p id="result">Get your prediction here!!!<h3 id="prediction"></h3></p>
-          </div>
-          <a class="btn btn-success myButton" href="#" role="button">Predict</a>
+            <p>Drag the slider to change the line width.</p>
+            <input type="range" min="10" max="50" value="15" id="myRange">
+            <p>Value: <span id="sliderValue"></span></p>
+          <div class='Chart' id= 'Chart'></div>
+          <div class="PredButton">
+            <a class="btn btn-success myButton" href="#" role="button">Predict</a>
+          </div>          
         </div>
         <div class="canvasDiv">
           <canvas id="canvas" width="280" height="280"></canvas>
@@ -35,16 +35,20 @@
             <a class="btn btn-primary" href="#" id="clearButton" role="button">Clear</a>
           </p>
         </div>
+        
       </div>
+      
     </div> 
     
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src="{{ url_for('static',filename='index.js') }}"></script>
+    <script src="https://code.jscharting.com/2.9.0/jscharting.js"></script>
     <script type="text/javascript">
      
     $(".myButton").click(function(e){
       $SCRIPT_ROOT = ({{ request.script_root|tojson|safe }});
+      
       e.preventDefault();
       var canvasObj = document.getElementById("canvas");
       var textObjResult = document.getElementById("result");
@@ -57,14 +61,42 @@
         data: img,
         timeout: 5000,
       }).done(function(data){
-        $('#result').text('Predicted Output');
-        $('#prediction').text(data);
-        divObjResult.style.paddingTop="5px"
-        divObjResult.style.paddingBottom="1px"
-        divObjResult.style.height="90px"
-        textObjResult.style.textAlign="center";
-        textObjResult.style.fontSize="12px";
-        textObjPred.style.fontSize="50px";
+        
+        JSC.Chart('Chart',{
+
+          title_label_text: 'The Predicted value is '+ data.result,
+          title_label_style: { color: '#807B5E', fontWeight: 'bold',  fontSize: '16px'},
+
+          legend_visible: false, 
+          type: 'column',
+          box: { 
+          padding: 10, 
+          outline: { color: '#B3AF97', width: 2 }, 
+          radius: 5, 
+          fill: '#ECEBE5'
+          }, 
+          series: [
+            {
+              color: '#B3AF97',
+              points: [
+                {x:'0',y:parseFloat(data.zero)},
+                {x:'1',y:parseFloat(data.one)},
+                {x:'2',y:parseFloat(data.two)},
+                {x:'3',y:parseFloat(data.three)},
+                {x:'4',y:parseFloat(data.four)},
+                {x:'5',y:parseFloat(data.five)},
+                {x:'6',y:parseFloat(data.six)},
+                {x:'7',y:parseFloat(data.seven)},
+                {x:'8',y:parseFloat(data.eight)},
+                {x:'9',y:parseFloat(data.nine)}
+
+              ]
+            }
+          ]
+
+        });
+
+
       })
     });
      </script>
